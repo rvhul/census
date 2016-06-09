@@ -1,51 +1,76 @@
 <!doctype html>
 <html class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body ng-app="censusApp">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+<body ng-app="censusApp">
 
-        <div class="container-fluid header text-center">
-          <h3>Census Data App</h3>
+  <div class="container-fluid header text-center">
+    <h3>Census Data App</h3>
+  </div>
+  <div class="row" ng-controller="MainController as mc">
+    <div class="col-md-6 col-md-offset-3">
+      <h4>Population For All Ages Query</h4>
+      <div class="dropdown">
+          <ul class="dropdown-menu">
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">JavaScript</a></li>
+          </ul>
         </div>
-        <div class="row" ng-controller="MainController as mc">
-          <div class="col-md-6 col-md-offset-3">
-            <h4>Population For All Ages Query</h4>
-            <div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a href="#">HTML</a></li>
-    <li><a href="#">CSS</a></li>
-    <li><a href="#">JavaScript</a></li>
-  </ul>
-</div>
 
-<select name="" id="" class="form-control"></select>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Enter Country" ng-model="mc.countryName"/>
-              <input type="text" class="form-control" placeholder="Enter Year" ng-model="mc.countryYear"/>
-            </div>
-            <a class="btn btn-primary" ng-click="mc.getTotalPopulationByCity()" ng-href="#/total-pop">Enter</a>
-
-            <a class="btn btn-primary" ng-click="mc.getYear()" ng-href="#/five-day">Five Day</a>
-          </div>
+        <select name="" id="" class="form-control"></select>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter Country" ng-model="mc.countryName"/>
+          <input type="text" class="form-control" placeholder="Enter Year" ng-model="mc.countryYear"/>
         </div>
+        <a class="btn btn-primary" ng-click="mc.getTotalPopulationByCity()">Get Results</a>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <!-- <td>Test</td> -->
+              <td></td>
+              <td></td>
+            </tr>
+            <tr ng-repeat="x in mc.populationResponse">
+              <!-- <th scope="row">2</th> -->
+              <td>{{x['2']}}</td>
+              <td>{{x['3']}}</td>
+            </tr>
+            <!-- <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <div class="container">
-    <div ng-view=""></div>
+      <div ng-view=""></div>
     </div>
 
     <div class="footer">
@@ -69,10 +94,10 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <!-- endbuild -->
-</body>
-</html>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <!-- endbuild -->
+  </body>
+  </html>

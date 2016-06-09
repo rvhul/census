@@ -38,9 +38,10 @@
   //Routes
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/total-pop', {
+      .when('/', {
         templateUrl: 'views/about.html',
-        controller: 'MainController'
+        controller: 'MainController',
+        controllerAs: 'vm'
       })
       .when('/about', {
         templateUrl: 'views/main.html',
